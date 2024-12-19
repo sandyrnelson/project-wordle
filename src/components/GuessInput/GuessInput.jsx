@@ -4,17 +4,12 @@ import { WORD_LENGTH_ALLOWED } from '../../constants';
 function GuessInput({ updateGuessList }) {
 	const [text, setText] = useState('');
 
-	function createGuess(guessed) {
-		return { id: crypto.randomUUID(), guess: guessed };
-	}
-
 	return (
 		<form
 			className='guess-input-wrapper'
 			onSubmit={(event) => {
 				event.preventDefault();
-				console.log(text);
-				updateGuessList(createGuess(text));
+				updateGuessList(text);
 				setText('');
 			}}>
 			<label htmlFor='guess-input'>Enter guess:</label>
