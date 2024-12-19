@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { WORD_LENGTH_ALLOWED } from '../../constants';
 
 function GuessInput({ updateGuessList }) {
 	const [text, setText] = useState('');
-	const charLimit = 5;
 
 	function createGuess(guessed) {
 		return { id: crypto.randomUUID(), guess: guessed };
@@ -22,8 +22,8 @@ function GuessInput({ updateGuessList }) {
 				id='guess-input'
 				type='text'
 				pattern={'[a-zA-Z]{5}'}
-				maxLength={charLimit}
-				minLength={charLimit}
+				maxLength={WORD_LENGTH_ALLOWED}
+				minLength={WORD_LENGTH_ALLOWED}
 				required
 				title='5 letter word'
 				value={text}
