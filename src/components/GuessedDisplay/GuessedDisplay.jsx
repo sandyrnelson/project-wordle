@@ -1,11 +1,15 @@
 import React from 'react';
+import { NUM_OF_GUESSES_ALLOWED, WORD_LENGTH_ALLOWED } from '../../constants';
+
+import { range } from '../../utils';
+import GuessedSlot from '../GuessedSlot/GuessedSlot';
 
 function GuessedDisplay({ guesses }) {
 	return (
 		<div className='guess-results'>
-			{guesses.map(({ id, guess }) => (
-				<p key={id} className='guess'>
-					{guess}
+			{range(NUM_OF_GUESSES_ALLOWED).map((wordIndex) => (
+				<p key={wordIndex} className='guess'>
+					<GuessedSlot word={guesses[wordIndex]} />
 				</p>
 			))}
 		</div>
